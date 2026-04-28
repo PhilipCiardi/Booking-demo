@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Boka tid</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: "Inter", sans-serif;
+      background: #f4f1ec;
+      color: #171717;
+    }
+
+    .hero {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+    }
+
+    .image-side {
+      min-height: 100vh;
+      background:
+        linear-gradient(to bottom, rgba(0,0,0,0.05), rgba(0,0,0,0.42)),
+        url("https://images.unsplash.com/photo-1515377905703-c4788e51af15?auto=format&fit=crop&w=1600&q=90");
+      background-size: cover;
+      background-position: center;
+      padding: 48px;
+      display: flex;
+      align-items: flex-end;
+      color: white;
+    }
+
+    .image-text {
+      max-width: 520px;
+    }
+
+    .image-text h2 {
+      font-size: clamp(38px, 5vw, 64px);
+      line-height: 0.95;
+      letter-spacing: -0.06em;
+      margin-bottom: 18px;
+    }
+
+    .image-text p {
+      color: rgba(255,255,255,0.82);
+      font-size: 17px;
+      line-height: 1.6;
+      max-width: 420px;
+    }
+
+    .content-side {
+      min-height: 100vh;
+      padding: 56px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .content-inner {
+      width: 100%;
+      max-width: 520px;
+    }
+
+    .eyebrow {
+      color: #8a8177;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      margin-bottom: 22px;
+    }
+
+    h1 {
+      font-size: clamp(44px, 5vw, 70px);
+      line-height: 0.92;
+      letter-spacing: -0.075em;
+      margin-bottom: 22px;
+    }
+
+    .intro {
+      color: #66615b;
+      font-size: 17px;
+      line-height: 1.7;
+      margin-bottom: 36px;
+      max-width: 470px;
+    }
+
+    .form-title {
+      font-size: 22px;
+      letter-spacing: -0.04em;
+      margin-bottom: 8px;
+    }
+
+    .form-text {
+      color: #777;
+      font-size: 14px;
+      margin-bottom: 22px;
+    }
+
+    form {
+      display: grid;
+      gap: 14px;
+    }
+
+    input,
+    select,
+    textarea {
+      width: 100%;
+      border: 1px solid rgba(23,23,23,0.10);
+      background: rgba(255,255,255,0.62);
+      border-radius: 16px;
+      padding: 16px 17px;
+      font: inherit;
+      outline: none;
+      transition: 0.2s ease;
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+      background: white;
+      border-color: rgba(23,23,23,0.35);
+    }
+
+    textarea {
+      min-height: 108px;
+      resize: vertical;
+    }
+
+    button {
+      margin-top: 4px;
+      border: none;
+      background: #171717;
+      color: white;
+      border-radius: 999px;
+      padding: 17px 20px;
+      font: inherit;
+      font-weight: 700;
+      cursor: pointer;
+      transition: 0.2s ease;
+    }
+
+    button:hover {
+      transform: translateY(-1px);
+      background: #000;
+    }
+
+    .note {
+      margin-top: 14px;
+      color: #8a8177;
+      font-size: 13px;
+      text-align: center;
+    }
+
+    @media (max-width: 900px) {
+      .hero {
+        grid-template-columns: 1fr;
+      }
+
+      .image-side {
+        min-height: 48vh;
+        padding: 28px;
+      }
+
+      .content-side {
+        min-height: auto;
+        padding: 36px 24px 48px;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .image-side {
+        min-height: 42vh;
+      }
+
+      .content-side {
+        padding: 30px 18px 44px;
+      }
+
+      h1 {
+        font-size: 44px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="hero">
+
+    <section class="image-side">
+      <div class="image-text">
+        <h2>Boka din tid enkelt</h2>
+        <p>En lugn och tydlig bokningssida för dig som vill komma i kontakt snabbt.</p>
+      </div>
+    </section>
+
+    <section class="content-side">
+      <div class="content-inner">
+        <div class="eyebrow">Bokning</div>
+
+        <h1>Boka tid</h1>
+
+        <p class="intro">
+          Fyll i formuläret så återkommer vi så snart som möjligt för att bekräfta din förfrågan.
+        </p>
+
+        <h3 class="form-title">Skicka förfrågan</h3>
+        <p class="form-text">Vi kontaktar dig med lediga tider och nästa steg.</p>
+
+        <form>
+          <input type="text" placeholder="Namn" />
+          <input type="email" placeholder="E-post" />
+
+          <select>
+            <option>Välj tjänst</option>
+            <option>Konsultation</option>
+            <option>Bokning</option>
+            <option>Offertförfrågan</option>
+          </select>
+
+          <textarea placeholder="Meddelande"></textarea>
+
+          <button type="submit">Skicka förfrågan</button>
+        </form>
+
+        <div class="note">Svar inom 24 timmar</div>
+      </div>
+    </section>
+
+  </main>
+</body>
+</html>
