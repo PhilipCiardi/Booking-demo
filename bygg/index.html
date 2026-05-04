@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Byggfirma Demo</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html, body {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
+
+    body {
+      font-family: "Inter", sans-serif;
+      color: rgba(255,255,255,0.88);
+      background: #15110d;
+    }
+
+    .page {
+      height: 100vh;
+      position: relative;
+      background:
+        linear-gradient(90deg, rgba(18,14,10,0.88) 0%, rgba(55,38,24,0.58) 45%, rgba(20,12,8,0.15) 100%),
+        linear-gradient(180deg, rgba(255,190,100,0.14) 0%, rgba(20,14,10,0.35) 100%),
+        url("https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=2000&q=90");
+      background-size: cover;
+      background-position: center right;
+    }
+
+    .page::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 18% 44%, rgba(255,190,110,0.18), transparent 26%),
+        radial-gradient(circle at 85% 20%, rgba(255,230,185,0.08), transparent 22%);
+      pointer-events: none;
+    }
+
+    header {
+      position: relative;
+      z-index: 2;
+      height: 92px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 72px;
+    }
+
+    .logo {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 32px;
+      color: rgba(255,255,255,0.84);
+    }
+
+    nav {
+      display: flex;
+      gap: 48px;
+    }
+
+    nav a {
+      color: rgba(255,255,255,0.74);
+      text-decoration: none;
+      font-size: 20px;
+      font-weight: 300;
+    }
+
+    .content {
+      position: relative;
+      z-index: 2;
+      height: calc(100vh - 92px);
+      width: min(100% - 48px, 1180px);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 520px 1fr;
+      align-items: center;
+    }
+
+    h1 {
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(44px, 4.8vw, 66px);
+      font-weight: 400;
+      line-height: 0.95;
+      margin-bottom: 20px;
+      color: rgba(255,255,255,0.86);
+    }
+
+    .lead {
+      max-width: 450px;
+      color: rgba(255,255,255,0.68);
+      font-size: 19px;
+      font-weight: 300;
+      line-height: 1.55;
+      margin-bottom: 26px;
+    }
+
+    form {
+      width: 100%;
+      max-width: 480px;
+      display: grid;
+      gap: 11px;
+    }
+
+    .field {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      min-height: 46px;
+      border-bottom: 1px solid rgba(255,255,255,0.14);
+    }
+
+    .icon {
+      width: 20px;
+      opacity: 0.55;
+      font-size: 18px;
+    }
+
+    input,
+    select,
+    textarea {
+      width: 100%;
+      border: none;
+      outline: none;
+      background: transparent;
+      color: rgba(255,255,255,0.82);
+      font: inherit;
+      font-size: 17px;
+      font-weight: 300;
+    }
+
+    input::placeholder,
+    textarea::placeholder {
+      color: rgba(255,255,255,0.58);
+    }
+
+    select {
+      appearance: none;
+      color: rgba(255,255,255,0.62);
+    }
+
+    textarea {
+      min-height: 54px;
+      resize: none;
+      padding-top: 14px;
+    }
+
+    button {
+      margin-top: 22px;
+      width: 100%;
+      border: 1px solid rgba(255,255,255,0.20);
+      background: linear-gradient(90deg, rgba(255,190,110,0.34), rgba(255,255,255,0.15));
+      color: rgba(255,255,255,0.88);
+      padding: 16px 22px;
+      font-size: 19px;
+      font-weight: 300;
+      cursor: pointer;
+      transition: 0.2s ease;
+    }
+
+    button:hover {
+      background: linear-gradient(90deg, rgba(255,190,110,0.46), rgba(255,255,255,0.22));
+      transform: translateY(-1px);
+    }
+
+    @media (max-width: 900px) {
+      html, body {
+        overflow: auto;
+      }
+
+      .page {
+        min-height: 100vh;
+        height: auto;
+      }
+
+      header {
+        height: 78px;
+        padding: 0 24px;
+      }
+
+      nav {
+        display: none;
+      }
+
+      .content {
+        height: auto;
+        min-height: calc(100vh - 78px);
+        grid-template-columns: 1fr;
+        padding: 24px 0 44px;
+      }
+
+      h1 {
+        font-size: 46px;
+      }
+
+      .lead {
+        font-size: 17px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="page">
+    <header>
+      <div class="logo">Stockholm Bygg</div>
+
+      <nav>
+        <a href="#">Hem</a>
+        <a href="#">Tjänster</a>
+        <a href="#">Kontakt</a>
+      </nav>
+    </header>
+
+    <section class="content">
+      <div class="form-area">
+        <h1>Få offert på ditt projekt</h1>
+
+        <p class="lead">
+          Beskriv vad du behöver hjälp med så återkommer vi med en offert.
+          Snabbt, tydligt och utan krångel.
+        </p>
+
+        <form>
+          <div class="field">
+            <span class="icon">♙</span>
+            <input type="text" placeholder="Namn" />
+          </div>
+
+          <div class="field">
+            <span class="icon">☏</span>
+            <input type="tel" placeholder="Telefonnummer" />
+          </div>
+
+          <div class="field">
+            <span class="icon">□</span>
+            <select>
+              <option>Vad gäller projektet?</option>
+              <option>Renovering</option>
+              <option>Kök</option>
+              <option>Badrum</option>
+              <option>Målning</option>
+              <option>Golvläggning</option>
+              <option>Annat</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <span class="icon">○</span>
+            <input type="text" placeholder="Önskad tidsperiod" />
+          </div>
+
+          <div class="field">
+            <span class="icon">☰</span>
+            <textarea placeholder="Beskriv projektet kort"></textarea>
+          </div>
+
+          <button type="submit">Skicka offertförfrågan</button>
+        </form>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
